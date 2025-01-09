@@ -37,6 +37,7 @@ export default function CartButton() {
           </span>
         )}
         <span className='font-bold'>{t('Header.Cart')}</span>
+        
 
         {showSidebar && (
           <div

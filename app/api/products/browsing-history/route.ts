@@ -15,6 +15,7 @@ export const GET = async (request: NextRequest) => {
   const productIds = productIdsParam.split(',')
   const categories = categoriesParam.split(',')
   const filter =
+  
     listType === 'history'
       ? {
           _id: { $in: productIds },
