@@ -81,7 +81,7 @@ body {
     @apply text-sky-700  hover:text-orange-700 hover:underline;
   }
   .header-button {
-    @apply cursor-pointer p-1 border border-transparent hover:border-white rounded-[2px];
+    @apply cursor-pointer p-1 rounded-[2px];
   }
   .item-button {
     @apply p-3 hover:bg-muted hover:no-underline;
