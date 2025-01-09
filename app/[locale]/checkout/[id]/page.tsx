@@ -21,6 +21,7 @@ const CheckoutPaymentPage = async (props: {
 
   const order = await getOrderById(id)
   if (!order) notFound()
+    
 
   const session = await auth()
 
