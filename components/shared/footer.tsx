@@ -24,11 +24,11 @@ export default function Footer() {
   const locale = useLocale()
   const t = useTranslations()
   return (
-    <footer className='bg-black  text-white underline-link'>
+    <footer className='bg-blue-950 dark:bg-black text-white underline-link'>
       <div className='w-full'>
         <Button
           variant='ghost'
-          className='bg-gray-800 w-full  rounded-none '
+          className='bg-blue-900 dark:bg-gray-800 w-full rounded-none '
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <ChevronUp className='mr-2 h-4 w-4' />
