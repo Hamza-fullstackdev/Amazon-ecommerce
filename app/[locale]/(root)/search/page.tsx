@@ -120,7 +120,7 @@ export default async function SearchPage(props: {
   const t = await getTranslations()
   return (
     <div>
-      <div className='my-2 bg-card md:border-b  flex-between flex-col md:flex-row '>
+      <div className='py-2 px-3 mb-2 bg-card md:border-b flex-between flex-col md:flex-row'>
         <div className='flex items-center'>
           {data.totalProducts === 0
             ? t('Search.No')
@@ -162,12 +162,12 @@ export default async function SearchPage(props: {
           />
         </div>
       </div>
-      <div className='bg-card grid md:grid-cols-5 md:gap-4'>
+      <div className='p-3 bg-card grid md:grid-cols-5 md:gap-4'>
         <CollapsibleOnMobile title={t('Search.Filters')}>
           <div className='space-y-4'>
             <div>
               <div className='font-bold'>{t('Search.Department')}</div>
-              <ul>
+              <ul className="mt-2">
                 <li>
                   <Link
                     className={`${
@@ -192,7 +192,7 @@ export default async function SearchPage(props: {
             </div>
             <div>
               <div className='font-bold'>{t('Search.Price')}</div>
-              <ul>
+              <ul className="mt-2">
                 <li>
                   <Link
                     className={`${'all' === price && 'text-primary'}`}
@@ -215,7 +215,7 @@ export default async function SearchPage(props: {
             </div>
             <div>
               <div className='font-bold'>{t('Search.Customer Review')}</div>
-              <ul>
+              <ul className="mt-2">
                 <li>
                   <Link
                     href={getFilterUrl({ rating: 'all', params })}
@@ -239,7 +239,7 @@ export default async function SearchPage(props: {
             </div>
             <div>
               <div className='font-bold'>{t('Search.Tag')}</div>
-              <ul>
+              <ul className="mt-2">
                 <li>
                   <Link
                     className={`${

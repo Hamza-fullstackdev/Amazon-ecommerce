@@ -47,7 +47,7 @@ export default async function Header() {
             <Link
               href={menu.href}
               key={menu.href}
-              className='header-button !p-2 '
+              className='header-button text-sm !p-2 '
             >
               {t('Header.' + menu.name)}
             </Link>
