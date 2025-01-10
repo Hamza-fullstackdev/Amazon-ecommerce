@@ -9,9 +9,9 @@ import { notFound } from 'next/navigation'
 import { getSetting } from '@/lib/actions/setting.actions'
 import { cookies } from 'next/headers'
 
-const poppins = Montserrat({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["100","200","300","400","500", "600", "700","800","900"],
   style: ["normal", "italic"],
 });
 
@@ -55,7 +55,7 @@ export default async function AppLayout({
       suppressHydrationWarning
     >
       <body
-        className={`min-h-screen ${poppins.className} antialiased`}
+        className={`min-h-screen ${montserrat.className} antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ClientProviders setting={{ ...setting, currency }}>
