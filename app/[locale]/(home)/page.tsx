@@ -73,6 +73,17 @@ export default async function HomePage() {
     <>
       <HomeCarousel items={carousels} />
       <div className="md:p-4 md:space-y-4 bg-border">
+      <div className="flex justify-around items-center flex-wrap p-4 bg-background">
+        <div>
+          <h4 className="font-semibold text-sm">Free shipping on orders over $50!</h4>
+        </div>
+        <div>
+          <h4 className="font-semibold text-sm">Free delivery in Australia and USA!</h4>
+        </div>
+        <div>
+          <h4 className="font-semibold text-sm">Free returns over $50!</h4>
+        </div>
+      </div>
         <HomeCard cards={cards} />
         <div className="p-4 bg-background">
           <h2 className="h2-bold mb-4 text-center py-3">
