@@ -3,6 +3,7 @@ import { HomeCard } from "@/components/shared/home/home-card";
 import { HomeCarousel } from "@/components/shared/home/home-carousel";
 import ProductSlider from "@/components/shared/product/product-slider";
 import { Card, CardContent } from "@/components/ui/card";
+import InfiniteScroller from "@/components/shared/infinite-scroller";
 
 import {
   getProductsForCard,
@@ -73,22 +74,24 @@ export default async function HomePage() {
     <>
       <HomeCarousel items={carousels} />
       <div className="md:p-4 md:space-y-4 bg-border">
-      <div className="flex justify-around items-center flex-wrap p-4 bg-background">
-        <div>
-          <h4 className="font-semibold text-sm">Free shipping on orders over $50!</h4>
+        <div className="flex justify-around items-center flex-wrap p-4 bg-background">
+          <div>
+            <h4 className="font-semibold text-sm">
+              Free shipping on orders over $50!
+            </h4>
+          </div>
+          <div>
+            <h4 className="font-semibold text-sm">
+              Free delivery in Australia and USA!
+            </h4>
+          </div>
+          <div>
+            <h4 className="font-semibold text-sm">Free returns over $50!</h4>
+          </div>
         </div>
-        <div>
-          <h4 className="font-semibold text-sm">Free delivery in Australia and USA!</h4>
-        </div>
-        <div>
-          <h4 className="font-semibold text-sm">Free returns over $50!</h4>
-        </div>
-      </div>
         <HomeCard cards={cards} />
         <div className="p-4 bg-background">
-          <h2 className="h2-bold mb-4 text-center py-3">
-            Shop by Category
-          </h2>
+          <h2 className="h2-bold mb-4 text-center py-3">Shop by Category</h2>
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="relative">
@@ -213,6 +216,7 @@ export default async function HomePage() {
       <div className="p-4 bg-background">
         <BrowsingHistoryList />
       </div>
+      <InfiniteScroller/>
     </>
   );
 }
