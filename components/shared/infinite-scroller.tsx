@@ -33,7 +33,7 @@ const InfiniteScroller = () => {
       <h2 className="text-xl font-semibold mb-4">Infinite Scroll</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.map((_, index) => (
-          <div key={index} className="w-64 p-3 border rounded-lg shadow-md">
+          <div key={index} className="p-3 border rounded-lg shadow-md">
             <div className="flex flex-col items-center text-center">
               <Image
                 src={'/images/p11-1.jpg'}
