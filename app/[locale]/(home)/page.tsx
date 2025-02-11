@@ -4,6 +4,7 @@ import { HomeCarousel } from "@/components/shared/home/home-carousel";
 import ProductSlider from "@/components/shared/product/product-slider";
 import { Card, CardContent } from "@/components/ui/card";
 import InfiniteScroller from "@/components/shared/infinite-scroller";
+import CategoryShop from "@/components/shared/category-shop";
 
 import {
   getProductsForCard,
@@ -13,7 +14,6 @@ import {
 import { getSetting } from "@/lib/actions/setting.actions";
 import { toSlug } from "@/lib/utils";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 export default async function HomePage() {
   const t = await getTranslations("Home");
@@ -90,113 +90,7 @@ export default async function HomePage() {
           </div>
         </div>
         <HomeCard cards={cards} />
-        <div className="p-4 bg-background">
-          <h2 className="h2-bold mb-4 text-center py-3">Shop by Category</h2>
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div className="relative">
-                <Image
-                  src={"/images/banner2.jpg"}
-                  alt="banner"
-                  width={500}
-                  height={500}
-                  className="size-auto"
-                />
-                <div className="absolute top-5 left-5">
-                  <h2 className="h2-bold dark:text-black">Smart Watches</h2>
-                  <div className="mt-3">
-                    <a
-                      href="#"
-                      className="px-3 py-2 bg-black text-white text-sm"
-                    >
-                      Shop Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="relative p-2">
-                    <Image
-                      src={"/images/p11-1.jpg"}
-                      alt="product-image"
-                      width={80}
-                      height={80}
-                    />
-                    <div className="absolute top-3 right-3">
-                      <h2 className="text-lg font-bold">Smart Watches</h2>
-                      <div className="mt-2">
-                        <a
-                          href="#"
-                          className="px-3 py-2 bg-black text-white text-sm"
-                        >
-                          Shop Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative p-2">
-                    <Image
-                      src={"/images/p11-1.jpg"}
-                      alt="product-image"
-                      width={80}
-                      height={80}
-                    />
-                    <div className="absolute top-3 right-3">
-                      <h2 className="text-lg font-bold">Smart Watches</h2>
-                      <div className="mt-2">
-                        <a
-                          href="#"
-                          className="px-3 py-2 bg-black text-white text-sm"
-                        >
-                          Shop Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative p-2">
-                    <Image
-                      src={"/images/p11-1.jpg"}
-                      alt="product-image"
-                      width={80}
-                      height={80}
-                    />
-                    <div className="absolute top-3 right-3">
-                      <h2 className="text-lg font-bold">Smart Watches</h2>
-                      <div className="mt-2">
-                        <a
-                          href="#"
-                          className="px-3 py-2 bg-black text-white text-sm"
-                        >
-                          Shop Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative p-2">
-                    <Image
-                      src={"/images/p11-1.jpg"}
-                      alt="product-image"
-                      width={80}
-                      height={80}
-                    />
-                    <div className="absolute top-3 right-3">
-                      <h2 className="text-lg font-bold">Smart Watches</h2>
-                      <div className="mt-2">
-                        <a
-                          href="#"
-                          className="px-3 py-2 bg-black text-white text-sm"
-                        >
-                          Shop Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CategoryShop />
         <Card className="w-full rounded-none">
           <CardContent className="p-4 items-center gap-3">
             <ProductSlider title={t("Today's Deals")} products={todaysDeals} />
@@ -216,7 +110,7 @@ export default async function HomePage() {
       <div className="p-4 bg-background">
         <BrowsingHistoryList />
       </div>
-      <InfiniteScroller/>
+      <InfiniteScroller />
     </>
   );
 }
