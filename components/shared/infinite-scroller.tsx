@@ -29,7 +29,7 @@ const InfiniteScroller = () => {
   }, []);
 
   return (
-    <div className="px-10 py-5 bg-white">
+    <div className="px-10 py-5 bg-white dark:bg-black">
       <h2 className="text-xl font-semibold mb-4">Infinite Scroll</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.map((_, index) => (
