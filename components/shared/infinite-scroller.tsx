@@ -66,7 +66,8 @@ const InfiniteScroller = () => {
             <div className="flex flex-col items-center text-center">
               <Link href={`/product/${product.slug}`} target="_blank" rel="noopener noreferrer">
                 <Image
-                  src={product.images[0] || '/images/placeholder.jpg'}
+                 // src={product.images[0] || '/images/placeholder.jpg'}
+                  src={'/images/p11-2.jpg'}
                   alt={product.name}
                   width={150}
                   height={200}
