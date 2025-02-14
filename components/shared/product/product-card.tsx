@@ -23,7 +23,8 @@ const ProductCard = ({
   hideAddToCart?: boolean
 }) => {
   const ProductImage = () => (
-    <Link href={`/product/${product.slug}`}>
+ 
+      <Link href={`/product/${product.slug}`} target="_blank" rel="noopener noreferrer">
       <div className='relative h-52'>
         {product.images.length > 1 ? (
           <ImageHover
@@ -49,7 +50,7 @@ const ProductCard = ({
     <div className='flex-1 space-y-2'>
       <p className='font-bold'>{product.brand}</p>
       <Link
-        href={`/product/${product.slug}`}
+        href={`/product/${product.slug}`} target="_blank" rel="noopener noreferrer"
         className='overflow-hidden text-ellipsis'
         style={{
           display: '-webkit-box',
