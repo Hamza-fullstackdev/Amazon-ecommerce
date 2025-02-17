@@ -24,7 +24,6 @@ export async function createProduct(data: IProductInput) {
     return { success: false, message: formatError(error) }
   }
 }
-
 // UPDATE
 export async function updateProduct(data: z.infer<typeof ProductUpdateSchema>) {
   try {
@@ -304,6 +303,7 @@ export async function getAllProducts({
     from: limit * (Number(page) - 1) + 1,
     to: limit * (Number(page) - 1) + products.length,
   }
+
 }
 
 export async function getAllTags() {
