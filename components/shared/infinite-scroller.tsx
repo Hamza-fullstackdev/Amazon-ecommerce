@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 interface Product {
   slug: string;
@@ -14,7 +14,7 @@ interface Product {
   images: string[];
   avgRating?: number;
   numReviews?: number;
-  videos?: string[]; 
+  videos?: string[];
 }
 
 const InfiniteScroller = () => {
@@ -37,7 +37,7 @@ const InfiniteScroller = () => {
         if (data.data.length < 4) setHasMore(false);
       }
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error("Error fetching products:", error);
     } finally {
       setLoading(false);
     }
@@ -57,8 +57,8 @@ const InfiniteScroller = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [fetchMoreItems]);
 
   const carouselSettings = {
@@ -74,47 +74,53 @@ const InfiniteScroller = () => {
   return (
     <div className="px-10 py-5 bg-white dark:bg-black">
       <h2 className="text-xl font-semibold mb-4">Infinite Scroll</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {items.map((product, index) => (
-          <div key={index} className="p-3 border rounded-lg shadow-md">
+          <div key={index} className="p-3">
             <div className="flex flex-col items-center text-center">
               <div className="w-full h-48 overflow-hidden">
-              <Slider {...carouselSettings}>
-  {product.images.map((image, imgIndex) => (
-    <div key={imgIndex}>
-      <Image
-        src={image || '/images/placeholder.jpg'}
-        alt={product.name}
-        layout="responsive"
-        width={150}
-        height={200}
-        className="object-cover cursor-pointer"
-      />
-    </div>
-  ))}
+                <Slider {...carouselSettings}>
+                  {product.images.map((image, imgIndex) => (
+                    <div key={imgIndex}>
+                      <Image
+                        src={image || "/images/placeholder.jpg"}
+                        alt={product.name}
+                        layout="responsive"
+                        width={150}
+                        height={200}
+                        className="size-auto object-cover cursor-pointer"
+                      />
+                    </div>
+                  ))}
 
-    <div>
-      <video
-        src="/images/default.mp4"
-        className="w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        controls
-      ></video>
-    </div>
-
-</Slider>
-
+                  <div>
+                    <video
+                      src="/images/default.mp4"
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      controls
+                    ></video>
+                  </div>
+                </Slider>
               </div>
-              <Link href={`/product/${product.slug}`} target="_blank" rel="noopener noreferrer">
-  <h3 className="font-bold mt-2">
-    {product.name && product.name.length > 50 ? `${product.name.slice(0, 50)}...` : product.name || `Product ${index + 1}`}
-  </h3>
-</Link>
-<p className="text-sm text-gray-600">
-  {product.description && product.description.length > 80 ? `${product.description.slice(0, 80)}...` : product.description || 'Product description'}
-</p>
+              <Link
+                href={`/product/${product.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3 className="font-bold mt-2">
+                  {product.name && product.name.length > 50
+                    ? `${product.name.slice(0, 50)}...`
+                    : product.name || `Product ${index + 1}`}
+                </h3>
+              </Link>
+              <p className="text-sm text-gray-600">
+                {product.description && product.description.length > 80
+                  ? `${product.description.slice(0, 80)}...`
+                  : product.description || "Product description"}
+              </p>
 
               <div className="flex items-center justify-center mt-2">
                 <span className="ml-1 text-sm text-gray-500">
