@@ -72,23 +72,23 @@ export default async function HomePage() {
 
   return (
     <>
+      <div className="flex justify-around items-center flex-wrap p-4 bg-background border-b border-gray-200">
+        <div>
+          <h4 className="font-semibold text-sm">
+            Free shipping on orders over $50!
+          </h4>
+        </div>
+        <div>
+          <h4 className="font-semibold text-sm">
+            Free delivery in Australia and USA!
+          </h4>
+        </div>
+        <div>
+          <h4 className="font-semibold text-sm">Free returns over $50!</h4>
+        </div>
+      </div>
       <HomeCarousel items={carousels} />
       <div className="md:p-4 md:space-y-4 bg-border">
-        <div className="flex justify-around items-center flex-wrap p-4 bg-background">
-          <div>
-            <h4 className="font-semibold text-sm">
-              Free shipping on orders over $50!
-            </h4>
-          </div>
-          <div>
-            <h4 className="font-semibold text-sm">
-              Free delivery in Australia and USA!
-            </h4>
-          </div>
-          <div>
-            <h4 className="font-semibold text-sm">Free returns over $50!</h4>
-          </div>
-        </div>
         <HomeCard cards={cards} />
         <CategoryShop />
         <Card className="w-full rounded-none">
