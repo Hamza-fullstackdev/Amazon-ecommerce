@@ -29,10 +29,11 @@ import { IProductInput } from '@/types'
 const productDefaultValues: IProductInput =
   process.env.NODE_ENV === 'development'
     ? {
-        name: 'Sample Product',
-        slug: 'sample-product',
+        name: 'Sysfoc Sample   Product',
+        slug: 'sysfoc-sample-product',
         category: 'Sample Category',
         images: ['/images/p11-1.jpg'],
+        videos: ['/images/default.mp4'],
         brand: 'Sample Brand',
         description: 'This is a sample description of the product.',
         price: 99.99,
@@ -53,6 +54,7 @@ const productDefaultValues: IProductInput =
         slug: '',
         category: '',
         images: [],
+        videos: [], 
         brand: '',
         description: '',
         price: 0,
@@ -90,7 +92,11 @@ const ProductForm = ({
   })
 
   const { toast } = useToast()
+  const images = form.watch('images')
+  const videos = form.watch('videos') 
+
   async function onSubmit(values: IProductInput) {
+    console.log('Form values:', values)
     if (type === 'Create') {
       const res = await createProduct(values)
       if (!res.success) {
@@ -121,7 +127,6 @@ const ProductForm = ({
       }
     }
   }
-  const images = form.watch('images')
 
   return (
     <Form {...form}>
@@ -140,7 +145,6 @@ const ProductForm = ({
                 <FormControl>
                   <Input placeholder='Enter product name' {...field} />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
@@ -152,7 +156,6 @@ const ProductForm = ({
             render={({ field }) => (
               <FormItem className='w-full'>
                 <FormLabel>Slug</FormLabel>
-
                 <FormControl>
                   <div className='relative'>
                     <Input
@@ -171,12 +174,12 @@ const ProductForm = ({
                     </button>
                   </div>
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
           />
         </div>
+
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
@@ -201,12 +204,12 @@ const ProductForm = ({
                 <FormControl>
                   <Input placeholder='Enter product brand' {...field} />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
           />
         </div>
+
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
@@ -253,6 +256,7 @@ const ProductForm = ({
           />
         </div>
 
+        {/* Images Field */}
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
@@ -290,7 +294,49 @@ const ProductForm = ({
                     </div>
                   </CardContent>
                 </Card>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
+        {/* Videos Field */}
+        <div className='flex flex-col gap-5 md:flex-row'>
+          <FormField
+            control={form.control}
+            name='videos'
+            render={() => (
+              <FormItem className='w-full'>
+                <FormLabel>Videos</FormLabel>
+                <Card>
+                  <CardContent className='space-y-2 mt-2 min-h-48'>
+                    <div className='flex justify-start items-center space-x-2'>
+                    {(videos || []).map((video: string) => (
+  <video
+    key={video}
+    src={video}
+    className='w-20 h-20 object-cover object-center rounded-sm'
+    controls
+  />
+))}
+
+                      <FormControl>
+                        <UploadButton
+                          endpoint='videoUploader' // Ensure this endpoint is configured in UploadThing
+                          onClientUploadComplete={(res: { url: string }[]) => {
+                            form.setValue('videos', [...videos, res[0].url])
+                          }}
+                          onUploadError={(error: Error) => {
+                            toast({
+                              variant: 'destructive',
+                              description: `ERROR! ${error.message}`,
+                            })
+                          }}
+                        />
+                      </FormControl>
+                    </div>
+                  </CardContent>
+                </Card>
                 <FormMessage />
               </FormItem>
             )}
@@ -320,6 +366,7 @@ const ProductForm = ({
             )}
           />
         </div>
+
         <div>
           <FormField
             control={form.control}
@@ -337,6 +384,7 @@ const ProductForm = ({
             )}
           />
         </div>
+
         <div>
           <Button
             type='submit'
