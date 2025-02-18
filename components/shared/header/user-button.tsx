@@ -25,10 +25,10 @@ export default async function UserButton() {
           <div className='flex items-center'>
             <div className='flex flex-col text-xs text-left'>
               <span>
-                {t('Header.Hello')},{' '}
+                {/* {t('Header.Hello')},{' '} */}
                 {session ? session.user.name : t('Header.sign in')}
               </span>
-              <span className='font-bold'>{t('Header.Account & Orders')}</span>
+              {/* <span className='font-bold'>{t('Header.Account & Orders')}</span> */}
             </div>
             <ChevronDownIcon />
           </div>

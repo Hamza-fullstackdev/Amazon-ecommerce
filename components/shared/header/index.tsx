@@ -40,7 +40,7 @@ export default async function Header() {
           <Search />
         </div>
       </div>
-      <div className='flex items-center px-3 mb-[1px] bg-blue-900 dark:bg-gray-800'>
+      <div className='flex items-center px-3 mb-[1px] bg-blue-900 dark:bg-gray-800 justify-center'>
         <Sidebar categories={categories} />
         <div className='flex items-center flex-wrap gap-3 overflow-hidden max-h-[42px]'>
           {data.headerMenus.map((menu) => (
