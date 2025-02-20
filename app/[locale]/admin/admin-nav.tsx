@@ -31,6 +31,11 @@ const links = [
     title: 'Settings',
     href: '/admin/settings',
   },
+  {
+    title: 'Bulk Data Upload',
+    href: '/admin/bulk-upload',
+  },
+
 ]
 export function AdminNav({
   className,
