@@ -8,4 +8,4 @@ const DataSchema = new mongoose.Schema({
   column5: { type: String, required: true },
 });
 
-export default mongoose.models.Data || mongoose.model('Data', DataSchema);
+export default mongoose.models.Data || mongoose.model('Product', DataSchema);
