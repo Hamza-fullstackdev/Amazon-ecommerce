@@ -33,7 +33,7 @@ const links = [
   },
   {
     title: 'Bulk Data Upload',
-    href: '/admin/bulk-upload',
+    href: '/admin/bulkupload',
   },
 
 ]
